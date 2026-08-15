@@ -603,7 +603,7 @@ const API = [
 const extrairPropostas = (processos) => {
   const resultados = [];
 
-  processos.forEach((processo) => {
+  processos.forEach((processo) => { 
     (processo.lotes || []).forEach((lote) => {
       (lote.itens || []).forEach((item) => {
         const propostas = Array.isArray(item.Propostas) ? item.Propostas : [];
