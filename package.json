@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Miguelzinn77/webscraping#readme",
   "dependencies": {
+    "exceljs": "^4.4.0",
     "express": "^5.2.1",
     "playwright": "^1.62.1",
     "xlsx": "^0.18.5"
