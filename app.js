@@ -1,5 +1,6 @@
 
 const ExcelJS = require("exceljs");
+const XLSX = require("xlsx");
 
 const BASE_URL = "https://pncp.gov.br/api/consulta";
 
@@ -100,7 +101,6 @@ async function buscarResultadosDoItem(cnpj, ano, sequencial, numeroItem) {
 }
 
 // extrair dados
-
 async function extrairDados() {
   const linhasItens = [];
   const linhasSemResultado = [];
@@ -240,9 +240,10 @@ async function exportarParaExcel({ linhasItens, linhasSemResultado }) {
     console.log("\n===== SEM RESULTADO PUBLICADO =====");
     console.log(JSON.stringify(linhasSemResultado, null, 2));
 
-    // console.log(`\nResumo: ${linhasItens.length} itens com resultado, ${linhasSemResultado.length} sem resultado.`);
+    await exportarParaExcel({ linhasItens, linhasSemResultado });
+
   } catch (erro) {
-    console.error("Erro fatal na extração:", erro);
+    console.error("Erro na extração:", erro);
     process.exit(1);
   }
 })();
