@@ -101,7 +101,6 @@ async function buscarResultadosDoItem(cnpj, ano, sequencial, numeroItem) {
 }
 
 // extrair dados
-
 async function extrairDados() {
   const linhasItens = [];
   const linhasSemResultado = [];
@@ -243,8 +242,8 @@ async function exportarParaExcel({ linhasItens, linhasSemResultado }) {
 
     await exportarParaExcel({ linhasItens, linhasSemResultado });
 
-    console.log(`\nResumo: ${linhasItens.length} itens com resultado, ${linhasSemResultado.length} sem resultado.`);
-    
+    console.log(`\nResumo: ${linhasItens.length} itens com resultado, ${linhasSemResultado.length} sem resultado.`); // gera o excel
+
   } catch (erro) {
     console.error("Erro na extração:", erro);
     process.exit(1);
